@@ -1,6 +1,16 @@
 export type Categorie = "web" | "data-ia";
 export type Contexte = "ecole" | "perso" | "entreprise";
 
+
+
+
+export function formaterDate(date: string) {
+  return new Date(date).toLocaleDateString("fr-FR", {
+    month: "long",
+    year: "numeric",
+  });
+}
+
 export type Projet = {
   id: string;
   titre: string;
@@ -11,6 +21,17 @@ export type Projet = {
   dateDebut: string;
   dateFin?: string;
   contexte: Contexte;
+};
+
+export const LABELS_CONTEXTE: Record<Contexte, string> = {
+  ecole: "École",
+  perso: "Perso",
+  entreprise: "Entreprise",
+};
+
+export const LABELS_CATEGORIE: Record<Categorie, string> = {
+  "data-ia": "data / IA",
+  web: "Web",
 };
 
 export const PROJETS: Projet[] = [
