@@ -5,6 +5,7 @@ import NeuralBackground from "@/components/NeuralBackground";
 import Contact from "@/components/Contact";
 import Project from "@/components/Project";
 import {useState} from "react";
+import { AnimatePresence } from "motion/react";
 
 type Section = "home" | "project" | "contact";
 
@@ -18,9 +19,12 @@ export default function Home() {
         <button onClick={() => setSection("project")}>Projets</button>
         <button onClick={() => setSection("contact")}>Contact</button>
       </nav>
-      {section === "home" && <Hero name="Riad Ramdane" title="Etudiant en IA / Data"/>}
-      {section === "project" && <Project title="Mes projets"/>}
-      {section === "contact" && <Contact title="Me Contacter"/>}
+      {/* sans AnimatePresence, react suprime l'élément d'un coup et l'animation exit n'a pas le temps de se jouer */}
+      <AnimatePresence mode="wait"> 
+        {section === "home" && <Hero key="home" name="Riad Ramdane" title="Etudiant en IA / Data"/>}
+        {section === "project" && <Project key="project" title="Mes projets"/>}
+        {section === "contact" && <Contact key="contact" title="Me Contacter"/>}
+      </AnimatePresence>
     </main>
   );
 }

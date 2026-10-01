@@ -1,3 +1,5 @@
+import Slide from "@/components/Slide";
+
 type ProjectProps = {
     title: string;
 }
@@ -5,8 +7,8 @@ type ProjectProps = {
 
 export default function Project({title}: ProjectProps) {
   return (
-    <section className="flex flex-col items-center justify-center min-h-screen">
+    <Slide>
       <h2>{title}</h2>
-    </section>
+    </Slide>
   );
 }
