@@ -6,19 +6,15 @@ import Contact from "@/components/Contact";
 import Project from "@/components/Project";
 import {useState} from "react";
 import { AnimatePresence } from "motion/react";
-
-type Section = "home" | "project" | "contact";
+import { Section } from "@/lib/noeuds";
+import NavNodes from "@/components/NavNodes";
 
 export default function Home() {
   const [section, setSection] = useState<Section>("home");
   return (
     <main className="flex flex-col h-screen overflow-hidden">
       <NeuralBackground/>
-      <nav className="fixed top-0 flex gap-6 p-6">
-        <button onClick={() => setSection("home")}>Accueil</button>
-        <button onClick={() => setSection("project")}>Projets</button>
-        <button onClick={() => setSection("contact")}>Contact</button>
-      </nav>
+      <NavNodes active={section} onSelect={setSection} />
       {/* sans AnimatePresence, react suprime l'élément d'un coup et l'animation exit n'a pas le temps de se jouer */}
       <AnimatePresence mode="wait"> 
         {section === "home" && <Hero key="home" name="Riad Ramdane" title="Etudiant en IA / Data"/>}

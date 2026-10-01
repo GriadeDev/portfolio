@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import { NOEUDS } from "@/lib/noeuds";
 
 type Point = { x: number; y: number; vx: number; vy: number };
 
@@ -78,7 +79,21 @@ export default function NeuralBackground() {
           ctx.stroke();
         }
       }
-
+      // Liens entre les neurones et les nœuds de navigation
+      for (const n of NOEUDS) {
+        const nx = (n.x / 100) * w;
+        const ny = (n.y / 100) * h;
+        for (const p of points) {
+          const d = Math.hypot(p.x - nx, p.y - ny);
+          if (d < 220) {
+            ctx.strokeStyle = `rgba(${COULEUR}, ${(1 - d / 220) * 0.5})`;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(nx, ny);
+            ctx.stroke();
+          }
+        }
+      }
       // Les points eux-mêmes
       ctx.fillStyle = `rgba(${COULEUR}, 0.9)`;
       for (const p of points) {
