@@ -1,7 +1,6 @@
 "use client";
 
 import Hero from "@/components/Hero";
-import NeuralBackground from "@/components/NeuralBackground";
 import Contact from "@/components/Contact";
 import Project from "@/components/Project";
 import {useState} from "react";
@@ -13,7 +12,6 @@ export default function Home() {
   const [section, setSection] = useState<Section>("home");
   return (
     <main className="flex flex-col h-screen overflow-hidden">
-      <NeuralBackground/>
       <NavNodes active={section} onSelect={setSection} />
       {/* sans AnimatePresence, react suprime l'élément d'un coup et l'animation exit n'a pas le temps de se jouer */}
       <AnimatePresence mode="wait"> 

@@ -1,4 +1,5 @@
 import { Projet, LABELS_CONTEXTE, formaterDate } from "@/lib/projets"
+import Link from "next/link";
 
 type ProjectCardProps = {
     projet : Projet;
@@ -19,7 +20,11 @@ export default function ProjectCard({projet}:ProjectCardProps){
                 <p>{formaterDate(projet.dateDebut)}</p>
                 <p>{LABELS_CONTEXTE[projet.contexte]}</p>
             </div>
-            <button className="mt-auto rounded-full border border-sky-400 px-4 py-2 text-sky-400 self-start">En savoir plus</button>
+            <Link
+                href={`/projets/${projet.id}`}
+                className="mt-auto self-start rounded-full border border-sky-400 px-4 py-2 text-sky-400 transition hover:bg-sky-400 hover:text-slate-950">
+                En savoir plus
+            </Link>
         </div>
     );
 }
