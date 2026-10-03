@@ -15,7 +15,7 @@ export default function Home() {
       <NavNodes active={section} onSelect={setSection} />
       {/* sans AnimatePresence, react suprime l'élément d'un coup et l'animation exit n'a pas le temps de se jouer */}
       <AnimatePresence mode="wait"> 
-        {section === "home" && <Hero key="home" name="Riad Ramdane" title="Etudiant en IA / Data"/>}
+        {section === "home" && <Hero key="home" />}
         {section === "project" && <Project key="project" title="Mes projets"/>}
         {section === "contact" && <Contact key="contact" title="Me Contacter"/>}
       </AnimatePresence>
