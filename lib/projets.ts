@@ -64,5 +64,33 @@ export const PROJETS: Projet[] = [
     dateDebut: "2026-07",
     dateFin: "2026-07",
     contexte: "perso"
-    }
+    },
+        {
+    id: "nt-career2",
+    titre: "NT Career : Plateforme d'aide à la recherche d'alternance",
+    description: "Conception d'une plateforme web aidant les étudiants et chercheurs d'emploi à optimiser leur recherche d'alternance et d'offres d'emploi.",
+    categories: ["web", "data-ia"],
+    tags: ["React", "Next.js", "Tailwind", "Supabase","Postgres","LLM"],
+    dateDebut: "2026-09",
+    contexte: "perso",
+    },
+        {
+    id: "nt-career3",
+    titre: "NT Career : Plateforme d'aide à la recherche d'alternance",
+    description: "Conception d'une plateforme web aidant les étudiants et chercheurs d'emploi à optimiser leur recherche d'alternance et d'offres d'emploi.",
+    categories: ["web", "data-ia"],
+    tags: ["React", "Next.js", "Tailwind", "Supabase","Postgres","LLM"],
+    dateDebut: "2026-09",
+    contexte: "perso",
+    },
+        {
+    id: "nt-career4",
+    titre: "NT Career : Plateforme d'aide à la recherche d'alternance",
+    description: "Conception d'une plateforme web aidant les étudiants et chercheurs d'emploi à optimiser leur recherche d'alternance et d'offres d'emploi.",
+    categories: ["web", "data-ia"],
+    tags: ["React", "Next.js", "Tailwind", "Supabase","Postgres","LLM"],
+    dateDebut: "2026-09",
+    contexte: "perso",
+    },
+
 ];

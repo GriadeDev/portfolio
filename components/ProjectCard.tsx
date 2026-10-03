@@ -1,5 +1,8 @@
+"use client";
+
 import { Projet, LABELS_CONTEXTE, formaterDate } from "@/lib/projets"
 import Link from "next/link";
+import { motion } from "motion/react";
 
 type ProjectCardProps = {
     projet : Projet;
@@ -7,7 +10,12 @@ type ProjectCardProps = {
 
 export default function ProjectCard({projet}:ProjectCardProps){
     return(
-        <div className="flex flex-col gap-3 rounded-xl border border-sky-400/30 bg-slate-950/80 p-6 backdrop-blur">
+        <motion.div 
+        initial={{ opacity: 0, y:20 }}
+        animate={{ opacity: 1, y:0}}
+        exit={{ opacity: 0, y:-20 }}
+        layout
+        className="flex flex-col gap-3 rounded-xl border border-sky-400/30 bg-slate-950/80 p-6 backdrop-blur">
             <h3 className="text-lg font-semibold">{projet.titre}</h3>
             <p>{projet.description}</p>
             <div className="flex flex-wrap gap-2">
@@ -25,6 +33,6 @@ export default function ProjectCard({projet}:ProjectCardProps){
                 className="mt-auto self-start rounded-full border border-sky-400 px-4 py-2 text-sky-400 transition hover:bg-sky-400 hover:text-slate-950">
                 En savoir plus
             </Link>
-        </div>
+        </motion.div>
     );
 }
